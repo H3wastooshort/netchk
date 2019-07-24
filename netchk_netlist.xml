@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<netlist sketch="netchk.fzz" date="Mi Jul 24 13:49:48 2019">
+ <net>
+  <connector name="red anode" id="connector0">
+   <part label="LED3" title="RGB LED (com. cathode, rgb)" id="57870"/>
+  </connector>
+  <connector name="red anode" id="connector0">
+   <part label="LED1" title="RGB LED (com. cathode, rgb)" id="57890"/>
+  </connector>
+  <connector name="red anode" id="connector0">
+   <part label="LED4" title="RGB LED (com. cathode, rgb)" id="57850"/>
+  </connector>
+  <connector name="pin3" id="connector2">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+  <connector name="red anode" id="connector0">
+   <part label="LED2" title="RGB LED (com. cathode, rgb)" id="57830"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="green anode" id="connector2">
+   <part label="LED1" title="RGB LED (com. cathode, rgb)" id="57890"/>
+  </connector>
+  <connector name="green anode" id="connector2">
+   <part label="LED3" title="RGB LED (com. cathode, rgb)" id="57870"/>
+  </connector>
+  <connector name="green anode" id="connector2">
+   <part label="LED2" title="RGB LED (com. cathode, rgb)" id="57830"/>
+  </connector>
+  <connector name="green anode" id="connector2">
+   <part label="LED4" title="RGB LED (com. cathode, rgb)" id="57850"/>
+  </connector>
+  <connector name="pin4" id="connector3">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="blue anode" id="connector3">
+   <part label="LED1" title="RGB LED (com. cathode, rgb)" id="57890"/>
+  </connector>
+  <connector name="blue anode" id="connector3">
+   <part label="LED3" title="RGB LED (com. cathode, rgb)" id="57870"/>
+  </connector>
+  <connector name="blue anode" id="connector3">
+   <part label="LED2" title="RGB LED (com. cathode, rgb)" id="57830"/>
+  </connector>
+  <connector name="blue anode" id="connector3">
+   <part label="LED4" title="RGB LED (com. cathode, rgb)" id="57850"/>
+  </connector>
+  <connector name="pin6" id="connector5">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="common cathode" id="connector1">
+   <part label="LED4" title="RGB LED (com. cathode, rgb)" id="57850"/>
+  </connector>
+  <connector name="pin1" id="connector0">
+   <part label="Piezo" title="Piezo Speaker" id="226580"/>
+  </connector>
+  <connector name="common cathode" id="connector1">
+   <part label="LED2" title="RGB LED (com. cathode, rgb)" id="57830"/>
+  </connector>
+  <connector name="pin7" id="connector6">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+  <connector name="common cathode" id="connector1">
+   <part label="LED3" title="RGB LED (com. cathode, rgb)" id="57870"/>
+  </connector>
+  <connector name="common cathode" id="connector1">
+   <part label="LED1" title="RGB LED (com. cathode, rgb)" id="57890"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin2" id="connector1">
+   <part label="Piezo" title="Piezo Speaker" id="226580"/>
+  </connector>
+  <connector name="pin7" id="connector6">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin5" id="connector4">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin8" id="connector7">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin2" id="connector1">
+   <part label="J2" title="Generic male header - 8 pins" id="57670"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin5" id="connector4">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin6" id="connector5">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin3" id="connector2">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin4" id="connector3">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin8" id="connector7">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin1" id="connector0">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="pin2" id="connector1">
+   <part label="J1" title="Generic male header - 8 pins" id="57650"/>
+  </connector>
+ </net>
+</netlist>
