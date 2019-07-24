@@ -9,8 +9,8 @@ WiFiClient client;
 
 
 // Enter your WiFi setup here:
-const char *SSID = "FRITZBoxKarin";
-const char *PASSWORD = "2871247716916185";
+const char *SSID = "vERY SeCURe";
+const char *PASSWORD = "12345678";
 
 const char* host = "google.com";
 const uint16_t port = 80;
