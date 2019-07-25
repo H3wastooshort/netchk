@@ -9,11 +9,20 @@ WiFiClient client;
 
 
 // Enter your WiFi setup here:
-const char *SSID = "vERY SeCURe";
-const char *PASSWORD = "12345678";
+const char *SSID = "free";
+const char *PASSWORD = "wifi";
 
+//Normal connectivity test adresss
 const char* host = "google.com";
 const uint16_t port = 80;
+
+//DNS-less connectivity test
+const char* nodnshost = "8.8.8.8";
+const uint16_t nodnsport = 53;
+
+
+int NETWORKING = 1;
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -41,8 +50,8 @@ void setup() {
   // Try forever
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
-    digitalWrite(GREEN, HIGH);
-    digitalWrite(RED, HIGH);
+    digitalWrite(GREEN, LOW);
+    digitalWrite(RED, LOW);
     delay(1000);
     digitalWrite(BLUE, !digitalRead(BLUE));
   }
@@ -51,28 +60,56 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (client.connect(host, port)) {
-    digitalWrite(RED, LOW);
-    digitalWrite(GREEN, HIGH);
-    digitalWrite(BLUE, HIGH);
-    delay(50);
-    digitalWrite(BLUE, LOW);
+  if (client.connect(host, port and client.connect(nodnshost, nodnsport))) {
+    NETWORKING = 2;
   }
 
-  if (!client.connect(host, port)) {
-    digitalWrite(GREEN, LOW);
-    digitalWrite(RED, HIGH);
-    digitalWrite(BLUE, HIGH);
-    delay(50);
-    digitalWrite(BLUE, LOW);
+  if (!client.connect(host, port) and client.connect(nodnshost, nodnsport)) {
+    NETWORKING = 1;
   }
-  client.stop();
+
+  if (!client.connect(host, port) and !client.connect(nodnshost, nodnsport)) {
+    NETWORKING = 0;
+  }
+
+  ledUpdate();
+
+
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
-    digitalWrite(GREEN, HIGH);
-    digitalWrite(RED, HIGH);
+    digitalWrite(GREEN, LOW);
+    digitalWrite(RED, LOW);
     delay(1000);
     digitalWrite(BLUE, !digitalRead(BLUE));
   }
   digitalWrite(BLUE, LOW);
+}
+
+void ledUpdate() {
+  switch (NETWORKING) {
+    case 0:
+      digitalWrite(GREEN, LOW);
+      digitalWrite(RED, HIGH);
+      digitalWrite(BLUE, HIGH);
+      delay(50);
+      digitalWrite(BLUE, LOW);
+      client.stop();
+      break;
+    case 1:
+      digitalWrite(GREEN, HIGH);
+      digitalWrite(RED, HIGH);
+      digitalWrite(BLUE, HIGH);
+      delay(50);
+      digitalWrite(BLUE, LOW);
+      client.stop();
+      break;
+    case 2:
+      digitalWrite(RED, LOW);
+      digitalWrite(GREEN, HIGH);
+      digitalWrite(BLUE, HIGH);
+      delay(50);
+      digitalWrite(BLUE, LOW);
+      client.stop();
+      break;
+  }
 }
