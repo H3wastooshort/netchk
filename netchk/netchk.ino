@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
+#include <ESP8266Ping.h> //https://github.com/dancol90/ESP8266Ping
 WiFiClient client;
-
 
 #define RED D1
 #define GREEN D2
@@ -9,20 +9,17 @@ WiFiClient client;
 
 
 // Enter your WiFi setup here:
-const char *SSID = "free";
-const char *PASSWORD = "wifi";
+const char *SSID = "Freifunk";
+const char *PASSWORD = "iscool";
 
 //Normal connectivity test adresss
 const char* host = "google.com";
 const uint16_t port = 80;
 
 //DNS-less connectivity test
-const char* nodnshost = "8.8.8.8";
-const uint16_t nodnsport = 53;
-
+IPAddress nodnshost (8, 8, 8, 8);
 
 int NETWORKING = 1;
-
 
 void setup() {
   // put your setup code here, to run once:
@@ -60,15 +57,15 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (client.connect(host, port and client.connect(nodnshost, nodnsport))) {
+  if (client.connect(host, port) and Ping.ping(nodnshost)) {
     NETWORKING = 2;
   }
 
-  if (!client.connect(host, port) and client.connect(nodnshost, nodnsport)) {
+  if (!client.connect(host, port) and Ping.ping(nodnshost)) {
     NETWORKING = 1;
   }
 
-  if (!client.connect(host, port) and !client.connect(nodnshost, nodnsport)) {
+  if (!client.connect(host, port) and !Ping.ping(nodnshost)) {
     NETWORKING = 0;
   }
 
