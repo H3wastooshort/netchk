@@ -1,16 +1,16 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266Ping.h> //https://github.com/dancol90/ESP8266Ping
+#include <EEPROM.h>
+#include <DNSServer.h>            //Local DNS Server used for redirecting all requests to the configuration portal
+#include <ESP8266WebServer.h>     //Local WebServer used to serve the configuration portal
+#include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 WiFiClient client;
+WiFiManager wifiManager;
 
 #define RED D1
 #define GREEN D2
 #define BLUE D4
-
-
-// Enter your WiFi setup here:
-const char *SSID = "Freifunk";
-const char *PASSWORD = "iscool";
 
 //Normal connectivity test adresss
 const char* host = "google.com";
@@ -26,6 +26,7 @@ void setup() {
   pinMode(RED, OUTPUT);
   pinMode(GREEN, OUTPUT);
   pinMode(BLUE, OUTPUT);
+  pinMode(D6, INPUT_PULLUP);
 
   Serial.begin(115200);
 
@@ -41,17 +42,7 @@ void setup() {
   delay(100);
   digitalWrite(BLUE, LOW);
   delay(100);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(SSID, PASSWORD);
-
-  // Try forever
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    digitalWrite(GREEN, LOW);
-    digitalWrite(RED, LOW);
-    delay(1000);
-    digitalWrite(BLUE, !digitalRead(BLUE));
-  }
+  wifiManager.autoConnect();
   digitalWrite(BLUE, LOW);
 }
 
@@ -71,7 +62,6 @@ void loop() {
 
   ledUpdate();
 
-
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
     digitalWrite(GREEN, LOW);
@@ -81,6 +71,7 @@ void loop() {
   }
   digitalWrite(BLUE, LOW);
 }
+
 
 void ledUpdate() {
   switch (NETWORKING) {
