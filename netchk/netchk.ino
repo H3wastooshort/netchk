@@ -55,6 +55,10 @@ void loop() {
   if (!client.connect(host, port) and Ping.ping(nodnshost)) {
     NETWORKING = 1;
   }
+  
+    if (client.connect(host, port) and !Ping.ping(nodnshost)) {
+    NETWORKING = 1;
+  }
 
   if (!client.connect(host, port) and !Ping.ping(nodnshost)) {
     NETWORKING = 0;
